@@ -17,6 +17,14 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
  
+
+// Typograafia
+h1, h2, h3 {
+   font-family: 'Arvo', serif;
+}
+
+
+// Tausta gradient
 .navbar,
 .home-callout {
    // Gradient provided by @_ighosh at uiGradients.com
@@ -25,6 +33,8 @@
    background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+
+// Avaleht
 .home-callout {
    color: darkslategrey;
    margin-top: -20px;
@@ -32,6 +42,8 @@
    padding-bottom: 100px;
 }
 
+
+// Navigatsioon
 .navbar {
    border: none;
 }
@@ -39,16 +51,19 @@
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
    color: darkslategrey;
+   &:hover {                  // SCSS! nested!
+      color: black;
+   }
 }
+
+/* tavaline CSS
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav > li > a:hover {
    color: black;
 }
+*/
 
 
 
-h1, h2, h3 {
-   font-family: 'Arvo', serif;
-}
 
