@@ -36,6 +36,18 @@
    border: none;
 }
 
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+   color: darkslategrey;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav > li > a:hover {
+   color: black;
+}
+
+
+
 h1, h2, h3 {
    font-family: 'Arvo', serif;
 }
