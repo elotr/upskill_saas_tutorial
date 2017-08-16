@@ -19,12 +19,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/" class="navbar-brand"><i class="fa fa-bug"></i> Skarabeus</a> 
+          <!-- <a href="/" class="navbar-brand"><i class="fa fa-bug"></i> Skarabeus</a>  HTML viisil linkide tegemine-->
+          <%= link_to "/", class: "navbar-brand" do %>    <!---->
+            <i class="fa fa-bug"></i>
+            Skarabeus
+          <% end %>
         </div>
         
         <div class="collapse navbar-collapse" id="main-nav-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/about">About</a></li>   <!-- '/about' on routes.rb failis about lehe asukoht -->
+            <!-- <li><a href="/meist">Meist</a></li>    '/meist' on routes.rb failis 'meist' lehe asukoht -->
+            <li><%= link_to "Meist", "/meist" %></li>  <!-- Rails viisil linkide tegemine -->
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
