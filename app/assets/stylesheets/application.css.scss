@@ -52,7 +52,7 @@ h1, h2, h3 {
 
 .navbar-brand {
    font-family: 'Arvo', serif;
-   font-weight: 800;
+   font-weight: 700;
 }
 
 .navbar-brand > .fa-bug {
@@ -74,6 +74,23 @@ h1, h2, h3 {
    color: black;
 }
 */
+
+.navbar-default .navbar-toggle {
+    &:hover {
+      background-color: #ffd194;
+      opacity: 0.86;
+      border-color: antiquewhite;
+    }
+    &:focus {
+       background-color: transparent;
+    }
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: darkslategrey;
+}
+
+
 
 
 
