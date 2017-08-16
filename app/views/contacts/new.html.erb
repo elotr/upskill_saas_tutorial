@@ -1,1 +1,15 @@
-<h1>Kasutajate leht</h1>
+<div class="container">
+   <h3 class="text-center">Võtke ühendust</h3>
+   
+   <%= form_for "/contacts" do |f| %>
+    <%= f.label :nimi, 'Nimi' %>
+    <%= f.text_field :name %>
+    <%= f.label :email, 'E-post' %>
+    <%= f.text_field :email %>
+    <%= f.label :comments, 'Kommentaar' %>
+    <%= f.text_area :comments %>
+    <%= f.submit 'Saada' %>
+  <% end %>
+   
+   
+</div>
