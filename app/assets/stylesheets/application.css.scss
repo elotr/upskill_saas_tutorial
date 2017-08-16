@@ -50,6 +50,15 @@ h1, h2, h3 {
    border: none;
 }
 
+.navbar-brand {
+   font-family: 'Arvo', serif;
+   font-weight: 800;
+}
+
+.navbar-brand > .fa-bug {
+   margin-right: 6px;
+}
+
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
    color: darkslategrey;

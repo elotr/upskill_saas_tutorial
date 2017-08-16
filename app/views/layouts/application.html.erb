@@ -21,7 +21,7 @@
           </button>
           <!-- <a href="/" class="navbar-brand"><i class="fa fa-bug"></i> Skarabeus</a>  HTML viisil linkide tegemine-->
           <!-- %= link_to "/", class: "navbar-brand" do %>     Rails viisil linkide tegemine-->
-          <%= link_to root_path, class: "navbar-brand" do %>   <!--dynaamiline link 'root_path', vt. 'root_url'-->
+          <%= link_to root_path, class: "navbar-brand" do %>   <!--prefiksiga link 'root_path', vt. 'root_url'-->
             <i class="fa fa-bug"></i>
             Skarabeus
           <% end %>
@@ -31,7 +31,7 @@
           <ul class="nav navbar-nav navbar-right">
             <!-- <li><a href="/meist">Meist</a></li>    '/meist' on routes.rb failis 'meist' lehe asukoht -->
             <!-- <li><%= link_to "Meist", "/meist" %></li>   Rails viisil linkide tegemine -->
-            <li><%= link_to "Meist", meist_path %></li> <!-- dynaamiline link 'meist_path'  vt. 'meist_url'-->
+            <li><%= link_to "Meist", meist_path %></li> <!-- prefiksiga link 'meist_path'  vt. 'meist_url'-->
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
