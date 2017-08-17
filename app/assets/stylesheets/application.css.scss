@@ -91,7 +91,10 @@ h1, h2, h3 {
 }
 
 
+// Kontak leht
 
-
-
-
+  // Kuidas teha oma nuppu bootstrapi vidinate ja viledega - https://stackoverflow.com/questions/10659070/styling-twitter-bootstrap-buttons 
+.btn-kontakt {
+  // @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(black, #9cdcd7, #ccc);
+}

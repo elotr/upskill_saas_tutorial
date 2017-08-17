@@ -1,15 +1,32 @@
 <div class="container">
-   <h3 class="text-center">Võtke ühendust</h3>
-   
-   <%= form_for "/contacts" do |f| %>
-    <%= f.label :nimi, 'Nimi' %>
-    <%= f.text_field :name %>
-    <%= f.label :email, 'E-post' %>
-    <%= f.text_field :email %>
-    <%= f.label :comments, 'Kommentaar' %>
-    <%= f.text_area :comments %>
-    <%= f.submit 'Saada' %>
-  <% end %>
-   
-   
+   <div class="row">
+      
+      <h3 class="text-center">Võtke ühendust</h3>
+      
+      <div class="col-md-4 col-md-offset-4">
+         
+            <%= form_for "/contacts" do |f| %>
+                  
+                  <div class="form-group">
+                     <%= f.text_field :name, class: 'form-control', placeholder: 'Nimi' %>
+                  </div>
+                  
+                  <div class="form-group">
+                     <%= f.text_field :email, class: 'form-control', placeholder: 'E-post' %>
+                  </div>
+                  
+                  <div class="form-group">
+                     <!-- <%= f.label :comments, 'Kommentaar' %> -->
+                     <%= f.text_area :comments, class: 'form-control', placeholder: 'Kommentaar' %>
+                  </div>
+                  
+                  <div class="form-group">
+                     <%= f.submit 'Saada', class: 'btn btn-block btn-kontakt' %>
+                  </div>
+                  
+            <% end %>
+            
+      </div> <!-- col-md-4 -->
+     
+   </div>
 </div>
