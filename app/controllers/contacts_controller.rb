@@ -8,10 +8,10 @@ class ContactsController < ApplicationController
       
       @contact = Contact.new(contact_params)
       if @contact.save
-         flash[:sucess] = "Teade saadetud!"
+         flash[:success] = "Teade saadetud!"       # flash[:success] - key (html'isapplication bootstrap class'i nimi); "Teade saadetud!" - väärtus
          redirect_to new_contact_path#, notice: "Teade saadetud!"    selle osa asemel vt. eelmine rida
       else
-         flash[:error] = @contact.errors.full_messages.join(", ")
+         flash[:danger] = "Kõik väljad peavad olema täidetud!"  #@contact.errors.full_messages.join(", ") <- kuidas muuta ingliskeelset errors'i teksti iga välja kohta ankeedis?
          redirect_to new_contact_path#, notice: "Saatmisel tekkis viga."
       end
       

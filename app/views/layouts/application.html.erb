@@ -38,7 +38,20 @@
       </div>
     </nav>
     
-
+    
+    <!-- Flash sõnumid on arukas panna application.html.erb faili,
+         kuna peale ankeedi täitmist suunatakse uuele lehele (nt konto tegemisel kasutaja konto avalehele vms.)
+         (vt contacts_controller.rb faili). 
+         Nii on kuvatavad teated alati näha, olenemata sellest, mis lehele kasutaja edasi suunati. -->
+         
+    <div class="container">
+      <% flash.each do |type, msg| %>  <!-- tsükkel, mis võtab bootstrapist iga key väärtuse järgi klassi, 
+                                        väljastab sõnumi vastava kujundusega. Võrdusmärk ees puudub, sest see rida ei väljasta midagi! 
+                                        type - key, msg - value  key-value paarid ruby keeles! contacts_controller.rb flash-hash -->
+        <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+      <% end %>
+    </div>
+    
     <%= yield %>
 
   </body>
