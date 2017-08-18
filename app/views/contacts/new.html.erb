@@ -2,31 +2,34 @@
    <div class="row">
       
       <h3 class="text-center">Võtke ühendust</h3>
-      
+         
       <div class="col-md-4 col-md-offset-4">
          
-            <%= form_for "/contacts" do |f| %>
-                  
-                  <div class="form-group">
-                     <%= f.text_field :name, class: 'form-control', placeholder: 'Nimi' %>
-                  </div>
-                  
-                  <div class="form-group">
-                     <%= f.text_field :email, class: 'form-control', placeholder: 'E-post' %>
-                  </div>
-                  
-                  <div class="form-group">
-                     <!-- <%= f.label :comments, 'Kommentaar' %> -->
-                     <%= f.text_area :comments, class: 'form-control', placeholder: 'Kommentaar' %>
-                  </div>
-                  
-                  <div class="form-group">
-                     <%= f.submit 'Saada', class: 'btn btn-block btn-kontakt' %>
-                  </div>
-                  
-            <% end %>
+         <%= flash[:notice] %>  <!-- peale andmete sisestamist v2ljastab ekraanile hypikaknad, milles sisu, mis kirjutatud contacts_controller faili -->
             
+         <!-- <%#= form_for "/contacts" do |f| %>  -->
+         <%= form_for @contact do |f| %>  <!-- @contact viib ankeeti sisestatud andmed conntacts_controller faili, kus luuakse nende p6hjal uus objekt -->
+           
+            <div class="form-group">
+               <%= f.text_field :name, class: 'form-control', placeholder: 'Nimi' %>
+            </div>
+            
+            <div class="form-group">
+               <%= f.text_field :email, class: 'form-control', placeholder: 'E-post' %>
+            </div>
+            
+            <div class="form-group">
+               <!-- <%= f.label :comments, 'Kommentaar' %> -->
+               <%= f.text_area :comments, class: 'form-control', placeholder: 'Kommentaar' %>
+            </div>
+            
+            <div class="form-group">
+               <%= f.submit 'Saada', class: 'btn btn-block btn-kontakt' %>
+            </div>
+            
+         <% end %>
+        
       </div> <!-- col-md-4 -->
-     
+      
    </div>
 </div>
