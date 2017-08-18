@@ -8,9 +8,11 @@ class ContactsController < ApplicationController
       
       @contact = Contact.new(contact_params)
       if @contact.save
-         redirect_to new_contact_path, notice: "Teade saadetud!"
+         flash[:sucess] = "Teade saadetud!"
+         redirect_to new_contact_path#, notice: "Teade saadetud!"    selle osa asemel vt. eelmine rida
       else
-         redirect_to new_contact_path, notice: "Saatmisel tekkis viga."
+         flash[:error] = @contact.errors.full_messages.join(", ")
+         redirect_to new_contact_path#, notice: "Saatmisel tekkis viga."
       end
       
    end
