@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
       if @contact.save
          redirect_to new_contact_path, notice: "Teade saadetud!"
       else
-         redirect _to new_contact_path, notice: "Saatmisel tekkis viga."
+         redirect_to new_contact_path, notice: "Saatmisel tekkis viga."
       end
       
    end
