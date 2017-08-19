@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Skarabeus</title>
-    <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i" rel="stylesheet">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+   <head>
+      <title>Skarabeus</title>
+      <%= csrf_meta_tags %>
+      <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i" rel="stylesheet">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </head>
 
-  <body>
+   <body>
     
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class='container'>
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- <a href="/" class="navbar-brand"><i class="fa fa-bug"></i> Skarabeus</a>  HTML viisil linkide tegemine-->
-          <!-- %= link_to "/", class: "navbar-brand" do %>     Rails viisil linkide tegemine-->
-          <%= link_to root_path, class: "navbar-brand" do %>   <!--prefiksiga link 'root_path', vt. 'root_url'-->
-            <i class="fa fa-bug"></i>
-            Skarabeus
-          <% end %>
-        </div>
-        
-        <div class="collapse navbar-collapse" id="main-nav-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <!-- <li><a href="/meist">Meist</a></li>    '/meist' on routes.rb failis 'meist' lehe asukoht -->
-            <!-- <li><%= link_to "Meist", "/meist" %></li>   Rails viisil linkide tegemine -->
-            <li><%= link_to "Meist", meist_path %></li> <!-- prefiksiga link 'meist_path'  vt. 'meist_url'-->
-            <li><%= link_to "Kontakt", new_contact_path %></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div>
-    </nav>
+      <nav class="navbar navbar-default navbar-static-top" role="navigation">
+         <div class='container'>
+            
+            <div class="navbar-header">
+               
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               
+               <!-- <a href="/" class="navbar-brand"><i class="fa fa-bug"></i> Skarabeus</a>  HTML viisil linkide tegemine-->
+               <!-- %= link_to "/", class: "navbar-brand" do %>     Rails viisil linkide tegemine-->
+               <%= link_to root_path, class: "navbar-brand" do %>   <!--prefiksiga link 'root_path', vt. 'root_url'-->
+                  <i class="fa fa-bug"></i>
+                  Skarabeus
+               <% end %>
+               
+            </div><!-- /.navbar-header -->
+           
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                  <!-- <li><a href="/meist">Meist</a></li>    '/meist' on routes.rb failis 'meist' lehe asukoht -->
+                  <!-- <li><%= link_to "Meist", "/meist" %></li>   Rails viisil linkide tegemine -->
+                  <li><%= link_to "Meist", meist_path %></li> <!-- prefiksiga link 'meist_path'  vt. 'meist_url'-->
+                  <li><%= link_to "Kontakt", kontakt_path %></li>
+               </ul>
+            </div><!-- /.navbar-collapse -->
+            
+         </div><!-- /.container -->
+      </nav>
     
     
-    <!-- Flash sõnumid on arukas panna application.html.erb faili,
+      <!-- Flash sõnumid on arukas panna application.html.erb faili,
          kuna peale ankeedi täitmist suunatakse uuele lehele (nt konto tegemisel kasutaja konto avalehele vms.)
          (vt contacts_controller.rb faili). 
          Nii on kuvatavad teated alati näha, olenemata sellest, mis lehele kasutaja edasi suunati. -->
          
-    <div class="container">
-      <% flash.each do |type, msg| %>  <!-- tsükkel, mis võtab bootstrapist iga key väärtuse järgi klassi, 
-                                        väljastab sõnumi vastava kujundusega. Võrdusmärk ees puudub, sest see rida ei väljasta midagi! 
-                                        type - key, msg - value  key-value paarid ruby keeles! contacts_controller.rb flash-hash -->
-        <%= content_tag :div, msg, class: "alert alert-#{type}" %>
-      <% end %>
-    </div>
-    
-    <%= yield %>
-
-  </body>
+      <div class="container">
+         
+         <% flash.each do |type, msg| %>  <!-- tsükkel, mis võtab bootstrapist iga key väärtuse järgi klassi, 
+                                           väljastab sõnumi vastava kujundusega. Võrdusmärk ees puudub, sest see rida ei väljasta midagi! 
+                                           type - key, msg - value  key-value paarid ruby keeles! contacts_controller.rb flash-hash -->
+            <%#= content_tag :div, msg, class: "alert alert-#{type}" %>
+            
+            <div class="alert alert-<%= "#{type}" %>" >
+               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+               <%= "#{msg}" %>
+            </div>
+           
+         <% end %>
+         
+      </div><!-- /.container -->
+      
+      <%= yield %>
+      
+   </body>
 </html>
