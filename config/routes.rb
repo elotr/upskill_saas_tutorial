@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   get 'meist', to: 'pages#meist'
-  resources :contacts
-  get 'kontakt', to: 'contacts#new'
+  resources :contacts, only: :create
+  get 'kontakt', to: 'contacts#new', as: 'new_contact'
 end
